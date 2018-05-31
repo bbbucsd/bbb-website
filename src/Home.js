@@ -2,9 +2,9 @@ import React from 'react';
 import NotFound from './NotFound';
 import PrismicReact from 'prismic-reactjs';
 import './Home.css';
+import connect from './connect';
 
-// Declare your component
-export default class Home extends React.Component {
+class Home extends React.Component {
 
   state = {
     doc: null,
@@ -105,3 +105,5 @@ export default class Home extends React.Component {
 		return <h1>Loading</h1>;
 	}
 }
+
+export default connect(Home);

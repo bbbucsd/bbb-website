@@ -1,10 +1,9 @@
 import React from 'react';
 import NotFound from './NotFound';
 import { RichText }from 'prismic-reactjs';
-import './About.css';
 import connect from './connect';
 
-class About extends React.Component {
+class Volunteer extends React.Component {
 
   state = {
     doc: null,
@@ -12,21 +11,21 @@ class About extends React.Component {
   }
 
   componentWillMount() {
-    this.fetchAbout(this.props);
+    this.fetchVolunteer(this.props);
   }
 
   componentWillReceiveProps(props) {
-    this.fetchAbout(props);
+    this.fetchVolunteer(props);
   }
 
   componentDidUpdate() {
     this.props.prismicCtx.toolbar();
   }
 
-  fetchAbout(props) {
+  fetchVolunteer(props) {
     if (props.prismicCtx) {
       // We are using the function to get a document by its uid
-      return props.prismicCtx.api.getByUID('about', 'about', {}, (err, doc) => {
+      return props.prismicCtx.api.getByUID('volunteer', 'volunteer', {}, (err, doc) => {
         if (doc) {
           // We put the retrieved content in the state as a doc variable
           this.setState({ doc });
@@ -49,16 +48,6 @@ class About extends React.Component {
     }
   }
 
-  renderHeroImageTwo() {
-    if (this.state.doc.data.hero_image_two) {
-      return (
-        <img src={this.state.doc.data.hero_image_two.url} className="rounded" style={{ width: "100%" }} />
-      );
-    } else {
-      return null;
-    }
-  }
-
 	render() {
 		if (this.state.doc) {
       console.log(this.state);
@@ -67,8 +56,7 @@ class About extends React.Component {
           <div className="page_wrapper">
             <section className="container">
 
-              <div id="about" className="page">
-
+              <div id="volunteer" className="page">
                 <h1>{RichText.asText(this.state.doc.data.title)}</h1>
 
                 {this.renderHeroImage()}
@@ -76,17 +64,6 @@ class About extends React.Component {
                   {RichText.render(this.state.doc.data.body)}
                 </div>
 
-                <div id="programs">
-                  <div className="box_heading">
-                    <h2>{RichText.asText(this.state.doc.data.title_two)}</h2>
-                    <span className="line"></span>
-                  </div>
-
-                  {this.renderHeroImageTwo()}
-                  <div className="full">
-                    {RichText.render(this.state.doc.data.body_two)}
-                  </div>
-                </div>
               </div>
 
             </section>
@@ -100,4 +77,4 @@ class About extends React.Component {
 	}
 }
 
-export default connect(About);
+export default connect(Volunteer);

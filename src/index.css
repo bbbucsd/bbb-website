@@ -2,3 +2,20 @@ body {
   margin: 0;
   padding: 0;
 }
+
+.full {
+  padding: 25px;
+  font-size: 18px;
+}
+
+.full p,
+.full b,
+.full div,
+.full a {
+  font-size: 18px;
+}
+
+.full li {
+  margin-top: 20px !Important;
+  margin-bottom: 20px !Important;
+}

@@ -1,25 +1,25 @@
 import React from 'react';
-import NotFound from './NotFound';
-import PrismicReact from 'prismic-reactjs';
+import { Link } from 'react-router-dom';
 import './Header.css';
 
 export default class Header extends React.Component {
 
   render() {
+    //<li><a href="https://facebook.com/bbbucsd/" title="Facebook" target="_blank">v</a></li>
+    //<li><a href="mailto:bbb@ucsd.edu" title="Mail" target="_blank">u</a></li>
     return (
       <div>
         <header>
           <div className="container">
             <nav>
               <ul>
-                <li><a href="/">home</a></li>
-                <li><a href="/about">about</a></li>
+                <li><Link to="/">home</Link></li>
+                <li><Link to="/about">about</Link></li>
+                <li><Link to="/volunteer">volunteer</Link></li>
               </ul>
             </nav>
             <aside>
               <ul className="social icon">
-                <li><a href="https://facebook.com/bbbucsd/" title="Facebook" target="_blank">v</a></li>
-                <li><a href="mailto:bbb@ucsd.edu" title="Mail" target="_blank">u</a></li>
               </ul>
             </aside>
           </div>
